@@ -6,7 +6,7 @@ namespace OOPConsoleApp
 {
     class Press
     {
-        int pistonPos;
+        int pistonPos;// börjar å 0(Zero)
         bool pistonGoingDown;
         int runSpeed;
         string toolTop;
@@ -16,7 +16,7 @@ namespace OOPConsoleApp
         bool manualMode;
         bool emergencyStop;
 
-        public Press()
+        public Press()//bygg en Press åt mig
         {
             toolTop = "------";
             toolBottom = "------";
@@ -27,6 +27,7 @@ namespace OOPConsoleApp
         public bool EmergencyStop()
         {
             emergencyStop = true;
+            powerOn = false;
 
             return emergencyStop;
         }
@@ -40,7 +41,7 @@ namespace OOPConsoleApp
 
         public bool TurnOn()
         {
-            if (!emergencyStop)
+            if ( ! emergencyStop)
             {
                 powerOn = true;
             }
@@ -54,7 +55,7 @@ namespace OOPConsoleApp
 
         public bool Run()
         {
-            if (!emergencyStop && powerOn)
+            if ( ! emergencyStop && powerOn)
             {
                 if (manualMode)
                 {
@@ -79,11 +80,12 @@ namespace OOPConsoleApp
         {
             if (pistonGoingDown)
             {
-                pistonPos += runSpeed;
+                pistonPos += runSpeed;//down
+                //pistonPos = pistonPos + runSpeed;
             }
             else
             {
-                pistonPos -= runSpeed;
+                pistonPos -= runSpeed;//up
             }
 
             if (pistonPos == 100)
